@@ -1,10 +1,12 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 import Header from '../components/molecules/Header'
+import { Donation } from '../types/donation'
+import { ResponseType } from '../types/response-type'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div >
       <Head>
@@ -15,6 +17,13 @@ const Home: NextPage = () => {
       <Header />
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () =>  {
+  const res = await fetch('https://storage.googleapis.com/southern-waters-642.appspot.com/fe_code_challenge/campaign.json')
+  const { data } = await res.json() as ResponseType<Donation[]>
+
+  return { props: { data }}
 }
 
 export default Home
