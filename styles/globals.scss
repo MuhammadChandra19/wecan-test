@@ -1,0 +1,17 @@
+@use '@sass-collective/breakpoint' with (
+  $screens: (
+    'mobile': 1px,
+    'tablet': 680px,
+    'desktop': 1024px,
+    'desktop-wide': 1440px,
+  )
+);
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
