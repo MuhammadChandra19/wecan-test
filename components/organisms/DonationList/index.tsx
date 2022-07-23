@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 const DonationList:React.FC<{list: Donation[]}> = ({list}) => {
   // console.log(donationList)
   return (
-    <div className={styles['donation-list']}>
+    <div className={` p-2 ${styles['donation-list']}`}>
       <div className={styles['donation-list__items']}>
       {
         list.length && list.map(donation => 

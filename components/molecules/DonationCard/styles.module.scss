@@ -11,10 +11,10 @@
   cursor: pointer;
   text-decoration: none;
 
-  @include breakpoint.only('mobile') {
-    display: flex;
-    gap: 12px;
-  }
+  // @include breakpoint.only('mobile') {
+  //   display: flex;
+  //   gap: 12px;
+  // }
 
   &__image {
     position: relative;
@@ -24,12 +24,6 @@
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 12px;
-
-    @include breakpoint.only('mobile') {
-      width: 46%;
-      flex-shrink: 0;
-      padding-bottom: 25vw;
-    }
 
     img,
     .empty {
