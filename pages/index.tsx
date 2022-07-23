@@ -1,10 +1,10 @@
 import type { GetServerSideProps, NextPage, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
+import { useState } from 'react'
 import Header from '../components/molecules/Header'
+import DonationList from '../components/organisms/DonationList'
 import { Donation } from '../types/donation'
 import { ResponseType } from '../types/response-type'
-// import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
 
 const Home: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
@@ -15,6 +15,9 @@ const Home: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSi
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      {
+        data.length && (<DonationList list={data}/>)
+      }
     </div>
   )
 }

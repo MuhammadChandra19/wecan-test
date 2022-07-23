@@ -1,5 +1,4 @@
-import type { NextComponentType } from 'next'
-const Logo: NextComponentType = () => {
+const Logo: React.FC = () => {
   return (
     <div className='flex p-2'>
       <div className='rounded-full h-10 w-10 bg-cyan-600'></div>
