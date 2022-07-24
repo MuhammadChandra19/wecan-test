@@ -2,6 +2,7 @@ export interface Donation {
   id: number;
   order: number;
   parent_project_id: number;
+  donation_received: number;
   title: string;
   expired: number;
   image: string;

@@ -22,6 +22,14 @@ const Logo: React.FC<Donation> = (props) => {
         <p className={styles["title"]}>{props.title}</p>
         <Progress percentage={props.donation_percentage}/>
         <div className="details flex justify-between p-1">
+          <div>
+            <p>Terkumpul</p>
+            <p>{new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(props.donation_received)}</p>
+          </div>
+          <div>
+            <p>Sisa hari</p>
+            <p>{props.days_remaining}</p>
+          </div>
         </div>
       </div>
     </div>
