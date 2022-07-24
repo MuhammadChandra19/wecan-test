@@ -6,7 +6,7 @@ import DonationList from '../components/organisms/DonationList'
 import { Donation } from '../types/donation'
 import { ResponseType } from '../types/response-type'
 
-const Home: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Home: NextPage<{data: Donation[]}> = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [donationList, setDonationList] = useState(data as Donation[])
   const [isSortByGoal, setSortBy] = useState(false)
 
@@ -41,10 +41,15 @@ const Home: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSi
 }
 
 export const getServerSideProps: GetServerSideProps = async () =>  {
-  const res = await fetch('https://storage.googleapis.com/southern-waters-642.appspot.com/fe_code_challenge/campaign.json')
-  const { data } = await res.json() as ResponseType<Donation[]>
+  // const res = await fetch('https://storage.googleapis.com/southern-waters-642.appspot.com/fe_code_challenge/campaign.json')
+  // const { data } = await res.json() as ResponseType<Donation[]>
+  // console.log(data)
+  // return { props: { data }}
 
-  return { props: { data }}
+  return fetch('https://storage.googleapis.com/southern-waters-642.appspot.com/fe_code_challenge/campaign.json')
+    .then(res => res.json())
+    .then((result: ResponseType<Donation[]>) => result.data )
+    .catch(e => e)
 }
 
 export default Home

@@ -6,7 +6,7 @@ import styles from './styles.module.scss'
 const Logo: React.FC<Donation> = (props) => {
   const [isImgError, setIsImageError] = useState(false)
   return (
-    <div className={styles['donation-card']}>
+    <div className={styles['donation-card']} data-testid="donation-card">
       <div className={`hover:drop-shadow-md ${styles['donation-card__image']}`}>
         {
           isImgError ? 
