@@ -1,12 +1,3 @@
-@use '@sass-collective/breakpoint' with (
-  $screens: (
-    'mobile': 1px,
-    'tablet': 680px,
-    'desktop': 1024px,
-    'desktop-wide': 1440px,
-  )
-);
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
